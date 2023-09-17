@@ -1,4 +1,3 @@
-
 import os #used for terminal clear with os.system('cls')
 
 #Helper: Used to clear screen
@@ -50,7 +49,7 @@ def printLoginScreen():
         if checkLoginInfo(username, password): # and loginAttempts <= maximum attempts allowed
             #Valid Login
             print("You have successfully logged in")
-            return 0
+            printTempName()
         else:
             #Invalid Login
             print("Incorret username / password, please try again")
@@ -119,12 +118,75 @@ def printNewAccountScreen():
         printInitialScreen() #Return to inital screen
     return -1
 
+
+#Used with printSkillScreen below To Do in future sprints
+def printSkill1Screen():
+    return
+def printSkill2Screen():
+    return
+def printSkill3Screen():
+    return
+def printSkill4Screen():
+    return
+def printSkill5Screen():
+    return
+
+#User has selected to "Learn a skill"
+def printSkillScreen():
+    while True:    
+        print("*** Learn a skill ***")
+        print("1 - Learn how to skate")
+        print("2 - Learn how to cook")
+        print("3 - Learn how to drive")
+        print("4 - Learn how to paint")
+        print("5 - Learn how to whistle")
+        print("6 - Return to main menu")
+        userInput = input()
+        if userInput == "1":
+            print("under construction")
+        elif userInput == "2":
+            print("under construction")
+        elif userInput == "3":
+            print("under construction")
+        elif userInput == "4":
+            print("under construction")
+        elif userInput == "5":
+            print("under construction")
+        elif userInput == "6":
+            printTempName()
+        else:
+            print("Invalid selection please input \"1\" or \"2\" or \"3\" or \"4\" or \"5\" or \"6\"")
+
+#User selected to find someone that you know
+def printFriendSearchScreen():
+    print("*** Find A Someone ***")
+    print("under construction")
+    printTempName() #Delete me
+
+#User selected to do a job search
+def printJobSearchScreen():
+    print("*** Job Search ***")
+    print("under construction")
+    printTempName() #Delete me
+
 #Users have logged in menu
-def printTempName():
-    #To Do
+def printTempName(): #Temp name to be changed after consulting team on proper naming etiquite?
     while True:
         print("*** Logged In Menu WIP ***")
-        wait = input()
+        print("1 - Search for a job")
+        print("2 - Find someone that you know")
+        print("3 - Learn a skill")
+        userInput = input()
+        if userInput == "1":
+            #print("under construction")
+            printJobSearchScreen()
+        elif userInput == "2":
+            print("under construction")
+            printFriendSearchScreen()
+        elif userInput == "3":
+            printSkillScreen()
+        else:
+            print("Invalid selection please input \"1\" or \"2\" or \"3\"")
 
 #Welcome screen and input
 def printInitialScreen():
@@ -136,11 +198,9 @@ def printInitialScreen():
         if userInput == "1":
             #Login as existing user. Go to Login page
             printLoginScreen()
-            break
         elif userInput == "2":
             #Create a new account. Go to create account page
             printNewAccountScreen()
-            break
         else:
             print("Invalid selection please input \"1\" or \"2\"")
 
