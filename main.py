@@ -3,13 +3,7 @@ import json
 
 users = []
 MAXUSERS = 5
-
-def main():
-    loadUsers()
-    printInitialScreen()
-    return 0
-
-main()
+DATABASE = "users.json"
 
 def clearScreen():
     os.system('cls')
@@ -31,13 +25,15 @@ def removeAccount(username):
 
 #Save users dictionary to JSON
 def saveUsers():
-    with open("user_file.json", "w") as database:
+    os.chdir(os.path.dirname(__file__))
+    with open(DATABASE, "w") as database:
         json.dump(users, database)
     return 0
 
 #Load users from json file to dictionary
 def loadUsers():
-    with open("user_file.json", 'r') as database:
+    os.chdir(os.path.dirname(__file__))
+    with open(DATABASE, 'r') as database:
         users = json.load(database)
     return 0
 
@@ -262,3 +258,10 @@ def printSkill5Screen():
     print("under construction, input anything to return")
     userInput = input()
     printSkillScreen()
+
+def main():
+    loadUsers()
+    printInitialScreen()
+    return 0
+
+main()
