@@ -23,9 +23,7 @@ def checkPasswordSecurity(password):
             digitFlag = 1
         if password[i].isupper():  # is uppercase
             capitalFlag = 1
-        if (
-            password[i].isascii() and not password[i].isalnum()
-        ):  # is ascii but not alpha-numerical
+        if password[i].isascii() and not password[i].isalnum():  # is ascii but not alpha-numerical
             specialFlag = 1
 
     if capitalFlag == 1 and digitFlag == 1 and specialFlag == 1:
