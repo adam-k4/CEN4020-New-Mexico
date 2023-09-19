@@ -1,7 +1,6 @@
 import os #used for terminal clear with os.system('cls')
 import json
 
-users = []
 MAXUSERS = 5
 DATABASE = "users.json"
 
@@ -26,16 +25,23 @@ def removeAccount(username):
 #Save users dictionary to JSON
 def saveUsers():
     os.chdir(os.path.dirname(__file__))
+    jsonUsers = {"users":users}
     with open(DATABASE, "w") as database:
-        json.dump(users, database)
+        json.dump(jsonUsers, database)
     return 0
 
 #Load users from json file to dictionary
 def loadUsers():
+    global users
     os.chdir(os.path.dirname(__file__))
-    with open(DATABASE, 'r') as database:
-        users = json.load(database)
-    return 0
+    try:
+        with open(DATABASE, 'r') as database:
+            jsonUsers = json.load(database)
+            users = jsonUsers["users"]
+            return 0
+    except (FileNotFoundError, json.JSONDecodeError):
+        users = []
+        return -1
 
 #Welcome screen and input
 def printInitialScreen():
