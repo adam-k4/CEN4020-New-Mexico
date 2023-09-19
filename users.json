@@ -1,1 +1,6 @@
-[]
+{
+    "users":
+    [
+        {"user": "user", "pass": "Password1!"}
+    ]
+}
